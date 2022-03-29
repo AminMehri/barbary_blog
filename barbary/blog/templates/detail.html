@@ -15,7 +15,7 @@
     <meta name="robots" content="index, follow">
 
 
-    <meta property="og-type" content="article">
+    <meta property="og:type" content="article">
     <meta property="og:title" content="{{article.title}}">
     <meta property="og:description" content="{{article.description|truncatechars:300}}">
     <meta property="og:url" content="https://zibar.ir/news/{{article.slug}}">
@@ -25,8 +25,8 @@
     <!-- Twitter -->
     <meta name="twitter:title" content="{{article.title}}">
     <meta name="twitter:description" content="{{article.description|truncatechars:300}}">
-    <meta name="twitter:card" content="">
-    <meta name="twitter:site" content="">
+    <meta name="twitter:card" content="Summary Card">
+    <meta name="twitter:site" content="https://twitter.com/aminmehri">
     <meta name="twitter:image" content="{{article.thumbnail.url}}">
 
 
@@ -39,6 +39,31 @@
 
 {% block title %}
     <title> {{ article.title }} | زیبار</title>
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://google.com/article"
+          },
+          "headline": "{{article.title}}",
+          "image": [
+            "{{article.thumbnail.url}}"
+          ],
+          "datePublished": "{{article.publish}}",
+          "dateModified": "{{article.publish}}",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Zibar",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://zibar.ir/static/zibar.png"
+            }
+          }
+        }
+    </script>
 {% endblock %}
 
 {% block main %}
@@ -71,23 +96,23 @@
 
 {% block footer %}
     <footer>
-        <div class="container-fluid bg-black text-muted mt-5 p-3">
+        <div class="container-fluid bg-black text-light mt-5 p-3">
             <div class="row">
 
                 <div class="col-md-4">
                     <p class="text-white">جدیدترین خبرها</p>
                     <hr class="w-50">
                     {% for a in art %}
-                        <a class="text-muted d-block" title="{{a.title_thumbnail}}" href="{% url 'detail' a.slug %}">{{a.title}}</a>
+                        <a class="text-light d-block" title="{{a.title_thumbnail}}" href="{% url 'detail' a.slug %}">{{a.title}}</a>
                     {% endfor %}
                 </div>
 
                 <div class="col-md-4">
                     <p class="text-white">لینک های مفید دیگر</p>
                     <hr class="w-50">
-                    <a class="text-muted d-block" title="سایت حمل بار" href="https://www.ziatc.ir/">شرکت حمل بار</a>
-                    <a class="text-muted d-block" title="لیست باربری" href="https://app.zibar.ir">سامانه اعلام بار (باربری رانندگان)</a>
-                    <a class="text-muted d-block" title="باربری هوشمند" href="http://telegram.me/zibar_ir">گروه اعلام بار رانندگان و متصدیان در تلگرام</a>
+                    <a class="text-light d-block" title="سایت حمل بار" href="https://www.ziatc.ir/">شرکت حمل بار</a>
+                    <a class="text-light d-block" title="لیست باربری" href="https://app.zibar.ir">سامانه اعلام بار (باربری رانندگان)</a>
+                    <a class="text-light d-block" title="باربری هوشمند" href="http://telegram.me/zibar_ir">گروه اعلام بار رانندگان و متصدیان در تلگرام</a>
                 </div>
 
                 <div class="col-md-4">
@@ -98,7 +123,7 @@
                     <p>شماره تماس: 09055055004</p>
 
                     <a class="social-media-insta" title="صفحه اینستاگرام زیبار" href="https://instagram.com/ziatc.ir">
-                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        <svg xmlns="http://www.w3.org/2000/svg" 
                         width="40" 
                         height="40" 
                         fill="currentColor" 
@@ -136,9 +161,10 @@
             <hr class="w-50 mx-auto">
 
             <div class="row text-center">
-                <p> تمامی حقوق مادی و معنوی این سایت متعلق به <a href="{% url 'home' %}" title="شرکت حمل و نقل ضیائی" class="text-muted" style="text-decoration: none;">کارگزاری حمل و نقل ضیائی</a> می باشد و هرگونه کپی برداری غیرقانونی محسوب خواهد شد </p>
+                <p> تمامی حقوق مادی و معنوی این سایت متعلق به <a href="{% url 'home' %}" title="شرکت حمل و نقل ضیائی" class="text-light" style="text-decoration: none;">کارگزاری حمل و نقل ضیائی</a> می باشد و هرگونه کپی برداری غیرقانونی محسوب خواهد شد </p>
             </div>
             
         </div>
     </footer>
 {% endblock %}
+

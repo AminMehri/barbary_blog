@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load jalali_tags %}
-
 
 {% block meta %}
 
@@ -9,80 +7,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="جدیدترین اخبار حمل و نقل داخلی و بین المللی برای رانندگان و شرکت ها در سامانه باربری آنلاین و اپلیکیشن رانندگان و متصدیان زیبار">
-    <meta name="keywords" content="اخبار,حمل و نقل جاده ای,رانندگان ماشین سنگین,ترانزیت">
+    <meta name="description" content="سامانه حمل و نقل زیبار این افتخار را دارد که از سال 1400 تمامی خدمات جاده ای از جمله اعلام و ارسال بار را به رانندگان و متصدیان بار به صورت تخصصی در خراسان ارائه دهد.">
+    <meta name="keywords" content="درباره ما,زیبار,حمل و نقل,حمل و نقل جاده ای خراسان رضوی">
     <meta name='googlebot' content='index, follow' />
     <meta name="robots" content="index, follow">
 
 
-    <meta property="og:type" content="news">
-    <meta property="og:title" content="اخبار جدید حمل و نقل">
-    <meta property="og:description" content="جدیدترین اخبار حمل و نقل داخلی و بین المللی در سامانه باربری آنلاین زیبار">
-    <meta property="og:url" content="https://zibar.ir/news">
+    <meta property="og:type" content="about-us">
+    <meta property="og:title" content="درباره ما - زیبار">
+    <meta property="og:description" content="سامانه حمل و نقل زیبار این افتخار را دارد که از سال 1400 تمامی خدمات جاده ای از جمله اعلام و ارسال بار را به رانندگان و متصدیان بار به صورت تخصصی در خراسان ارائه دهد.">
+    <meta property="og:url" content="https://zibar.ir/about-us">
     <meta property="og:site_name" value="سایت باربری زیبار">
-    <meta property="og:image" content="https://zibar.ir/static/zibar.png">
+    <meta property="og:image" content="https://zibar.ir/static/WallpaperDog-20512813.png">
 
     <!-- Twitter -->
-    <meta name="twitter:title" content="اخبار جدید حمل و نقل">
-    <meta name="twitter:description" content="جدیدترین اخبار حمل و نقل داخلی و بین المللی در سامانه باربری زیبار">
+    <meta name="twitter:title" content="درباره ما - زیبار">
+    <meta name="twitter:description" content="سامانه حمل و نقل زیبار این افتخار را دارد که از سال 1400 تمامی خدمات جاده ای از جمله اعلام و ارسال بار را به رانندگان و متصدیان بار به صورت تخصصی در خراسان ارائه دهد."">
     <meta name="twitter:card" content="Summary Card">
     <meta name="twitter:site" content="https://twitter.com/aminmehri">
-    <meta name="twitter:image" content="https://zibar.ir/static/zibar.png">
+    <meta name="twitter:image" content="https://zibar.ir/static/WallpaperDog-20512813.png">
 
 
     <meta name="author" content="امین مهری">
     <meta name="owner" content="مهدی حدادزاده">
 
-    <link rel="canonical" href="https://zibar.ir/news/">
-    
+    <link rel="canonical" href="https://zibar.ir/about-us">
+
 {% endblock %}
 
 {% block title %}
-    <title>جدید ترین اخبار رانندگان و شرکت های حمل و نقل | زیبار</title>
+    <title>درباره ما | زیبار</title>
+{% endblock %}
+
+{% block header %}
+    <header2>
+        <div class="gfg">
+            <img class="image-fluid" src="{% static 'WallpaperDog-20512813.png' %}" alt="کارگزاری حمل و نقل ضیائی" title="سایت اعلام بار زیبار" id="img-about">
+            <h2 class="first-txt text-success p-2 rounded-pill">هر آنچه باید درباره زیبار بدانیم.</h2>
+        </div>
+    </header2>
 {% endblock %}
 
 {% block main %}
-    <h1 class="alert alert-dismissible w-50 text-center text-success fw-bolder mx-auto" id="notification-alert">اخبار حمل و نقل</h1>
+    <section class="container my-5">
+        <div class="text-center">
+                <p class="fs-5">
+                    <strong>وب سایت زیبار</strong> از سال 1400 توسط <strong>کارگزاری حمل و نقل ضیائی</strong> ایجاد گردید تا شاید بتواند کمک کوچکی در زمینه <em>اتصال رانندگان به متصدیان بار</em> به عمل آورد. این سامانه، مشکلاتی که در مسیر این مهم بود را تسهیل کرده و <strong>سریع، امن و مطمئن</strong> است. امروزه خوشحال هستیم که میتوانیم به صد ها راننده خدمات ارائه دهیم و مسیر <strong>حمل و نقل</strong> را برایشان آسان سازیم.
+                </p>
+            </div>
+        </div>
+    </section>
 
-    {% for article in articles %}
-        <section class="container">
-            <a title="{{article.title_thumbnail}}" href="{% url 'detail' article.slug %}" class="text-black">
-                <div class="card shadow mb-3 news" id="card-news">
-                    <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{article.thumbnail.url}}" class="img-thumbnail rounded-start" width="400px" height="300px" alt="{{article.alt_thumbnail}}" title="{{article.title_thumbnail}}">
-                    </div>
-                    <div class="col-md-8 position-relative">
-                        <div class="card-body">
-                        <h2 class="card-title">{{article.title}}</h2>
-                        <p class="card-text">{{article.description|truncatechars:500|safe}}</p>
-                        <p class="card-text position-absolute bottom-0"><small class="text-muted">{{article.publish|to_jalali:'%y/%m/%d'}}</small></p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </a>
-        </section>
-    {% endfor %}
+    <section class="container my-5">
+        <div class="row">
+            
+            <div class="col-md-4 text-center">
+                <h3 class="text-success">کارگزاری حمل و نقل ضیائی</h3>
+                
+                <p> شرکت حمل و نقل ضیائی در سال 1380 به مدیریت <strong>حمیدرضا ضیائی</strong> ایجاد گردید. در این مدت ما مفتخریم که بیش از هزاران بار را به اقصی و نقاط جهان ارسال کرده ایم. اگر میخواهید بارهای خود را منتقل کنید، میتوانید به ما <strong>اعتماد</strong> کنید.. <a class="fw-bold text-primary" href="https://ziatc.ir" title="کارگزاری حمل و نقل ضیائی">ارسال بار توسط ما</a></p>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+                <h3 class="text-success">گروه تلگرامی زیبار</h3>
+                
+                <p>خدمات زیبار تنها به این سایت ختم نمیشود. <strong>گروه تلگرامی</strong> ما به صورت شبانه روزی شما رانندگان محترم را در جریان بارهای جدید قرار میدهد. همچنین متصدیان عزیز نیز میتوانند با مراجعه به گروه تلگرامی زیبار <em>آگهی های بار</em> خود را درج نمایند. <a class="fw-bold text-primary" href="https://telegram.me/zibar_ir" title="شبکه های اجتماعی">گروه تلگرام زیبار</a> </p>
+            </div>
+        </div>
+    </section>
 
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center align-items-center">
-            {% if articles.has_next %}
-                <li class="page-item">
-                    <a class="page-link" title="حمل نقل" href="{% url 'home' articles.next_page_number %}">بعدی</a>
-                </li>
-            {% endif %}
+    <div class="container">
+        <p class="display-4">تیم ما</p>
+    </div>
 
-            <span class="mx-2">صفحه {{ articles.number }} از {{ articles.paginator.num_pages }}</span>
+    <section class="container my-5">
+        <div class="row">
+            
+            <div class="col-md-4 text-center">
+                <img class="rounded-circle mb-5" src="{% static 'dad-hesam.png' %}" alt="بنیانگذار" title="حمیدرضا ضیائی">
+                <strong class="text-danger d-block">حمیدرضا ضیائی</strong>
+                <small class="fw-bolder">Manager of the business</small>
+                
+                <p></p>
+            </div>
 
-            {% if articles.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" title="حمل کالا" href="{% url 'home' articles.previous_page_number %}">قبلی</a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
+            <div class="col-md-4 text-center">
+                <img class="rounded-circle mb-5" src="{% static 'hesam.png' %}" alt="معاون" title="امیرحسام ضیائی">
+                <strong class="text-danger d-block">امیرحسام ضیائی</strong>
+                <small class="fw-bolder">Partner of the business</small>
+                
+                <p></p>
+            </div>
 
+            <div class="col-md-4 text-center">
+                <img class="rounded-circle mb-5" src="{% static 'mehdi.png' %}" alt="توسعه دهنده" title="مهدی حدادزاده">
+                <strong class="text-danger d-block">مهدی حدادزاده</strong>
+                <small class="fw-bolder">King of the business</small>
+                
+                <p></p>
+            </div>
+
+            <!-- <div class="col-md-3 text-center">
+                <img class="rounded-circle mb-5" src="{% static 'emma.png' %}" alt="توسعه دهنده" title="امین مهری">
+                <h3 class="text-danger">امین مهری</h3>
+                
+                <p></p>
+            </div> -->
+
+        </div>
+    </section>
 {% endblock %}
 
 {% block footer %}

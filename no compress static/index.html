@@ -37,29 +37,11 @@
 
 {% block title %}
     <title>اعلام بار هوشمند رانندگان و متصدیان | زیبار</title>
-
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "زیبار",
-            "item": "https://zibar.ir/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "جدیدترین خبرهای حمل و نقل",
-            "item": "https://zibar.ir/news/"
-          }]
-        }
-    </script>
 {% endblock %}
 
 
 {% block header %}
-    <header id="head">
+    <header>
 
         <div class="container-lg mt-5 bg-white bg-opacity-75" id="header">
             <div class="row">
@@ -207,7 +189,7 @@
         <div class="card p-3 shadow-lg mt-5" id="teach">
             <div class="row">
                 <div class="col-12 col-lg-6 mx-auto">
-                    <a href="http://zibar.ir/static/profile.webP" target="_blank"><img class="img-fluid images" src="{% static 'profile.webP' %}" title="پروفایل زیبار" alt="اپلیکیشن زیبار" id="profile-img"/></a>
+                    <a href="http://zibar.ir/static/profile.webP" target="_blank"><img class="img-fluid" src="{% static 'profile.webP' %}" title="پروفایل زیبار" alt="اپیلیکیشن زیبار" id="images"/></a>
                 </div>
                 <div class="col-12 col-lg-6 d-flex align-items-center">
                     <p class="first-img">
@@ -228,7 +210,7 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <a href="http://zibar.ir/static/show_bar.webP" target="_blank"><img class="margini img-fluid images" src="{% static 'show_bar.webP' %}" title="اعلام بار زیبار" alt="اعلام بار مشهد" id="show-img"/></a>
+                    <a href="http://zibar.ir/static/show_bar.webP" target="_blank"><img class="margini img-fluid" src="{% static 'show_bar.webP' %}" title="اعلام بار زیبار" alt="اعلام بار مشهد" id="images"/></a>
                 </div>
             </div>
         </div>
@@ -238,7 +220,7 @@
         <div class="card p-3 shadow-lg" id="teach">
             <div class="row">
                 <div class="col col-lg-6">
-                    <a href="http://zibar.ir/static/add_bar.webP" target="_blank"><img class="img-fluid images" src="{% static 'add_bar.webP' %}" title="ثبت بار" alt="متصدی بار" id="add-img"/></a>
+                    <a href="http://zibar.ir/static/add_bar.webP" target="_blank"><img class="img-fluid" src="{% static 'add_bar.webP' %}" title="ثبت بار" alt="متصدی بار" id="images"/></a>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
                     <p class="first-img">
@@ -258,7 +240,7 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <a href="http://zibar.ir/static/history.webP" target="_blank"><img class="margini img-fluid images" src="{% static 'history.webP' %}" title="تاریخچه بارها" alt="تاریخچه حمل و نقل" id="history-img"/></a>
+                    <a href="http://zibar.ir/static/history.webP" target="_blank"><img class="margini img-fluid" src="{% static 'history.webP' %}" title="تاریخچه بارها" alt="تاریخچه حمل و نقل" id="images"/></a>
                 </div>
             </div>
         </div>
@@ -338,6 +320,4 @@
             
         </div>
     </footer>
-    
-
 {% endblock %}

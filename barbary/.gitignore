@@ -2,6 +2,4 @@ venv
 .venv
 env
 .env
-db.sqlite3
-disk
-disk/db.sqlite3
+*.sqlite3

@@ -1,0 +1,192 @@
+@font-face {
+    font-family: Vazir;
+    src: url("./fonts/Vazir.eot");
+    src: url("./fonts/Vazir.eot") format("embedded-opentype"),
+      url("./fonts/Vazir.woff") format("woff"),
+      url("./fonts/Vazir.ttf") format("truetype");
+}
+  
+body {
+    font-family: "Vazir" !important;
+    background-color: #e2ffce;
+}
+
+
+#images {
+    width: 800px;
+    height: 400px;
+}
+
+.first-img {
+    line-height: 2rem;
+}
+
+
+header {
+
+    background-image: url("./green_truck.webP");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: justify;
+}
+
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.bi-telegram:hover {
+    color: blue;
+    transition-duration: 0.3s;
+}
+
+.bi-instagram:hover {
+    color: red;
+    transition-duration: 0.3s;
+}
+
+.bi-linkedin:hover {
+    color: blue;
+    transition-duration: 0.3s;
+}
+
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+    z-index: 5;
+    background: rgb(0,93,25);
+    background: linear-gradient(90deg, rgba(0,93,25,0.6446953781512605) 6%, rgba(68,121,9,1) 47%, rgba(15,199,129,1) 81%, rgba(0,255,149,0.8155637254901961) 100%);
+}
+
+.nav-link {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-link::after {
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+
+.bg-dark{
+    height: 50px;
+}
+
+
+#section_contact {
+    background-image: url("./building.png");
+    height: 100%;
+    width: 100%;
+}
+
+
+#navbar {
+    background-color: #333; 
+    position: fixed;
+    top: 0;
+    width: 100%; 
+    transition: top 0.3s;
+}
+
+#navbar a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    text-decoration: none;
+}
+  
+.nav-link:hover {
+    background-color: rgb(63, 216, 114);
+    color: black;
+}
+
+
+#teach {
+    background-color: rgb(158, 255, 158);
+    text-align: justify;
+}
+
+#benifits {
+    background-color: #B5FF86;
+}
+
+#notification-alert {
+    margin-top: 7rem;
+}
+
+.gfg {
+    position: relative;
+}
+
+.first-txt {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+}
+
+.second-txt {
+    position: absolute;
+    top: 60%;
+    right: 50px;
+}
+
+#img-about {
+    height: 100%;
+    width: 100%;
+}
+
+.rounded-circle {
+    width: 250px;
+    height: 250px;
+}
+
+
+#back_to_top {
+    position:fixed ;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-color: #000;
+    padding: 5px;
+    color: red;
+}
+
+#back_to_top:hover {
+    padding: 10px;
+    transition-duration: 0.5s;
+}
+
+#card-news:hover {
+    opacity: 0.7;
+    transition-duration: 0.2s;
+}
+
+#detail-container {
+    margin-top: 7rem;
+}
+
+#facebook-share {
+    color: blue;
+}

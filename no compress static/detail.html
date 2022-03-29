@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load jalali_tags %}
-
+{% load social_share %}
 
 {% block meta %}
 
@@ -9,79 +9,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="جدیدترین اخبار حمل و نقل داخلی و بین المللی برای رانندگان و شرکت ها در سامانه باربری آنلاین و اپلیکیشن رانندگان و متصدیان زیبار">
-    <meta name="keywords" content="اخبار,حمل و نقل جاده ای,رانندگان ماشین سنگین,ترانزیت">
+    <meta name="description" content="{{article.description|truncatechars:300}}">  <!-- بین 160 تا 300 کاراکتر -->
+    <meta name="keywords" content="{{article.keywords}}">
     <meta name='googlebot' content='index, follow' />
     <meta name="robots" content="index, follow">
 
 
-    <meta property="og:type" content="news">
-    <meta property="og:title" content="اخبار جدید حمل و نقل">
-    <meta property="og:description" content="جدیدترین اخبار حمل و نقل داخلی و بین المللی در سامانه باربری آنلاین زیبار">
-    <meta property="og:url" content="https://zibar.ir/news">
-    <meta property="og:site_name" value="سایت باربری زیبار">
-    <meta property="og:image" content="https://zibar.ir/static/zibar.png">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{article.title}}">
+    <meta property="og:description" content="{{article.description|truncatechars:300}}">
+    <meta property="og:url" content="https://zibar.ir/news/{{article.slug}}">
+    <meta property="og:site_name" value="وب سایت باربری زیبار">
+    <meta property="og:image" content="{{article.thumbnail.url}}">
 
     <!-- Twitter -->
-    <meta name="twitter:title" content="اخبار جدید حمل و نقل">
-    <meta name="twitter:description" content="جدیدترین اخبار حمل و نقل داخلی و بین المللی در سامانه باربری زیبار">
+    <meta name="twitter:title" content="{{article.title}}">
+    <meta name="twitter:description" content="{{article.description|truncatechars:300}}">
     <meta name="twitter:card" content="Summary Card">
     <meta name="twitter:site" content="https://twitter.com/aminmehri">
-    <meta name="twitter:image" content="https://zibar.ir/static/zibar.png">
+    <meta name="twitter:image" content="{{article.thumbnail.url}}">
 
 
     <meta name="author" content="امین مهری">
     <meta name="owner" content="مهدی حدادزاده">
 
-    <link rel="canonical" href="https://zibar.ir/news/">
+    <link rel="canonical" href="https://zibar.ir/news/{{article.slug}}">
     
 {% endblock %}
 
 {% block title %}
-    <title>جدید ترین اخبار رانندگان و شرکت های حمل و نقل | زیبار</title>
+    <title> {{ article.title }} | زیبار</title>
 {% endblock %}
 
 {% block main %}
-    <h1 class="alert alert-dismissible w-50 text-center text-success fw-bolder mx-auto" id="notification-alert">اخبار حمل و نقل</h1>
 
-    {% for article in articles %}
-        <section class="container">
-            <a title="{{article.title_thumbnail}}" href="{% url 'detail' article.slug %}" class="text-black">
-                <div class="card shadow mb-3 news" id="card-news">
-                    <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{article.thumbnail.url}}" class="img-thumbnail rounded-start" width="400px" height="300px" alt="{{article.alt_thumbnail}}" title="{{article.title_thumbnail}}">
-                    </div>
-                    <div class="col-md-8 position-relative">
-                        <div class="card-body">
-                        <h2 class="card-title">{{article.title}}</h2>
-                        <p class="card-text">{{article.description|truncatechars:500|safe}}</p>
-                        <p class="card-text position-absolute bottom-0"><small class="text-muted">{{article.publish|to_jalali:'%y/%m/%d'}}</small></p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </a>
-        </section>
-    {% endfor %}
+    <section class="container p-3 border-start border-end" id="detail-container">
 
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center align-items-center">
-            {% if articles.has_next %}
-                <li class="page-item">
-                    <a class="page-link" title="حمل نقل" href="{% url 'home' articles.next_page_number %}">بعدی</a>
-                </li>
-            {% endif %}
+        <h1>{{article.title}}</h1>
+        <img src="{{article.thumbnail.url}}" class="img-fluid my-5" alt="{{article.alt_thumbnail}}" title="{{article.title_thumbnail}}">
+        <p>{{ article.description|safe }}</p>
+        <p class="card-text"><small class="text-muted">{{article.publish|to_jalali:'%y/%m/%d'}}</small></p>
 
-            <span class="mx-2">صفحه {{ articles.number }} از {{ articles.paginator.num_pages }}</span>
+        <p>اشتراک گذاری در:</p>
+        <div class="row bg-black p-2">
+            <div class="col-lg-1">{% post_to_facebook object_or_url "<p><strong>فیسبوک</strong></p>" %}</div>
+            <div class="col-lg-1">{% post_to_telegram "خبر جدید: {{article.title}}" object_or_url "<p><strong>تلگرام</strong></p>" %}</div>
+            <div class="col-lg-1">{% post_to_whatsapp  object_or_url "<p><strong>واتساپ</strong></p>" %}</div>
+        </div>
 
-            {% if articles.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" title="حمل کالا" href="{% url 'home' articles.previous_page_number %}">قبلی</a>
-                </li>
-            {% endif %}
-        </ul>
-    </nav>
+
+        <hr>
+
+
+        <h3 class="text-center">زیبار بزرگترین سامانه اعلام بار رانندگان و متصدیان بار در خراسان </h3>
+        <a href="https://app.zibar.ir/" title="اعلام بار رانندگان"><button class="btn btn-outline-dark mb-3 w-100">ورود به وب اپلیکیشن اعلام بار</button></a>
+        <a href="https://ziatc.ir" title="حمل بار"><button class="btn btn-outline-dark mb-3 w-100">ارسال بار به سراسر کشور</button></a>
+
+    </section>
 
 {% endblock %}
 
@@ -158,3 +142,4 @@
         </div>
     </footer>
 {% endblock %}
+

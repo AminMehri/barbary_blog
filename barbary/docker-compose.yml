@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  barbary:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/barbary
+      - barbary_static_volume:/barbary/static
+      - barbary_files_volume:/barbary/files
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - barbary_network
+      - nginx_network
+
+volumes:
+  barbary_static_volume:
+    external: true
+  barbary_files_volume:
+    external: true
+networks:
+  zibar_network:
+    external: true
+  nginx_network:
+    external: true
+

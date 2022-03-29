@@ -2,7 +2,7 @@
 	"disks": [
 		{
 			"name": "disk",
-			"mountTo": "."
+			"mountTo": "disk"
 		}
 	]
 }

@@ -16,7 +16,6 @@ urlpatterns = [
     path('news/page/<int:page>', news, name="home"),
     # re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
     # re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
-
 ]
 
 handler404 = 'blog.views.error_404_view'
