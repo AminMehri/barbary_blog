@@ -47,9 +47,7 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'home' %}text-decoration-underline{% endif %} fw-bold" aria-current="page" title="اپلیکیشن اعلام بار" href="{% url 'home' %}">صفحه اصلی</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'news' %}text-decoration-underline{% endif %} fw-bold mx-lg-5" title="اخبار حمل و نقل" href="{% url 'news' %}">اخبار</a>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'about' %}text-decoration-underline{% endif %} fw-bold" title="درباره زیبار" href="{% url 'about' %}">درباره ما</a>
                     </li>

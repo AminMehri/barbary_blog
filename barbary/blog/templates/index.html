@@ -47,11 +47,6 @@
             "position": 1,
             "name": "زیبار",
             "item": "https://zibar.ir/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "جدیدترین خبرهای حمل و نقل",
-            "item": "https://zibar.ir/news/"
           }]
         }
     </script>
@@ -285,7 +280,7 @@
                         <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
                             <div class="content">
                                 <h6 class="category">کانال تلگرام زیبار</h6>
-                                <p class="description">شرکت ها و متصدیان گرامی میتوانند در این کانال اعلام بار کنند. تفاوت این کانال با کانال های مشابه در این است که اعلام بار شما در این کانال در ۳۱ گروه اعلام بار سراسری منتشر خواهد شد و بازده بسیار بالایی را به همراه خواهد داشت.</p>
+                                <p class="description">شرکت ها و متصدیان گرامی میتوانند در این کانال اعلام بار کنند. تفاوت این کانال با کانال های مشابه در این است که اعلام بار شما در این کانال در ده ها گروه اعلام بار سراسری و استانی منتشر خواهد شد و بازده بسیار بالایی را به همراه خواهد داشت.</p>
                                 <h4 class="title"><a href="https://telegram.me/zibar_ir">ورود به کانال تلگرام زیبار</a></h4>
                             </div>
                         </div> <!-- end card -->
@@ -310,7 +305,7 @@
                             <div class="content">
                                 <h6 class="category">وب اپلیکیشن زیبار</h6>
                                 <p class="description">رانندگان و متصدیان بزرگوار, شما میتوانید با عضویت کاملا رایگان در وب اپلیکیشن زیبار به راحتی اعلام بار کنید و جدید ترین بارهای ثبت شده را مشاهده نمایید.</p>
-                                <h4 class="title"><a href="https://app.zibar.ir/"></a>ورود به وب اپلیکیشن زیبار</h4>
+                                <h4 class="title"><a href="https://app.zibar.ir/">ورود به وب اپلیکیشن زیبار</a></h4>
                             </div>
                         </div> <!-- end card -->
                     </div>
@@ -320,9 +315,9 @@
                     <div class="card-big-shadow">
                         <div class="card card-just-text" data-background="color" data-color="purple" data-radius="none">
                             <div class="content">
-                                <h6 class="category">اپلیکیشن اندروید زیبار</h6>
-                                <p class="description">شما با نصب اپلیکیشن زیبار میتوانید از خدماتی از قبیل اعلام بار و مشاهده بار به صورت رایگان استفاده کنید.</p>
-                                <h4 class="title"><a href="#">دانلود اپلیکیشن اندروید زیبار</a></h4>
+                                <h6 class="category">اپلیکیشن اندروید زیبار برای  متصدیان</h6>
+                                <p class="description">متصدیان محترم با نصب اپلیکیشن زیبار برای متصدیان میتوانند به خدماتی از قبیل اعلام بار به صورت رایگان دسترسی پیدا کنند.</p>
+                                <h4 class="title"><a href="https://myket.ir/get/app?packageName=ir.zibar.app">دانلود اپلیکیشن اندروید زیبار از مایکت</a></h4>
                             </div>
                         </div> <!-- end card -->
                     </div>
@@ -348,14 +343,6 @@
     <footer>
         <div class="container-fluid bg-black text-light mt-5 p-3">
             <div class="row">
-
-                <div class="col-md-4">
-                    <p class="text-white">جدیدترین خبرها</p>
-                    <hr class="w-50">
-                    {% for a in art %}
-                        <a class="text-light d-block" title="{{a.title_thumbnail}}" href="{% url 'detail' a.slug %}">{{a.title}}</a>
-                    {% endfor %}
-                </div>
 
                 <div class="col-md-4">
                     <p class="text-white">لینک های مفید دیگر</p>
